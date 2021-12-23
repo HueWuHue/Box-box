@@ -1,0 +1,60 @@
+<nav class="navbar navbar-default">
+  <div class="container-fluid" style="flex-wrap:nowrap;">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Box²</a>
+    </div>
+    <!--initial Tab-->
+    <div class="modal fade" id="user" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">User Info</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body text-center">
+               <a href="#" data-toggle="modal" data-target="#profile" class="btn btn-primary">
+              <span class="glyphicon glyphicon-user"></span> Profile</a>
+                <br>
+                <a href="{{url_for('logout')}}" class="btn btn-danger">
+              <span class="glyphicon glyphicon-log-out"></span> Logout</a>
+              </div>
+            </div>
+          </div>
+        </div>
+    <!--Profile Tab-->
+    <div class="modal fade" id="profile" tabindex="-1" role="dialog" aria-labelledby="Label" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="Label">User Profile</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                {% if session['user']%}
+                <ul class="list-unstyled">
+                  <li>Username : {{session['user'].name}}</li>
+                  <li>Clearance : {{session['user'].clearance}}</li>
+                  <li>Email : {{session['user'].email}}</li>
+                  <li><a href="{{url_for('change_password')}}" class="btn btn-warning">Change Password</a></li>
+                </ul>
+                {%endif%}
+              </div>
+            </div>
+          </div>
+        </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      {% if session['user'] %}
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+        <a href="#" data-toggle="modal" data-target="#user">
+          <span class="glyphicon glyphicon-user"></span>{{session['user'].name}}</a>
+        </li>
+      </ul>
+      {%endif%}
+    </div>
+  </div>
+</nav>

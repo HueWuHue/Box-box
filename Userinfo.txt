@@ -1,0 +1,10 @@
+user_1 = Users(email='123@gmail.com',name='John Doe',password ='password',clearance="Top Secret",workgroup='boxbox',role="User"
+        status="Active")
+db.session.add(user_1)
+db.session.commit()
+
+Clearance Level:
+Top Secret
+Secret
+Confidential
+Unclassified

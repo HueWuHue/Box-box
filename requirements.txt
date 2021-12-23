@@ -1,0 +1,10 @@
+WTForms~=3.0.0
+pyotp~=2.6.0
+qrcode~=7.3.1
+python-magic~=0.4.24
+Flask~=2.0.2
+SQLAlchemy~=1.4.27
+Werkzeug~=2.0.2
+humanize~=3.13.1
+opencv-python~=4.5.4.60
+numpy~=1.21.5
